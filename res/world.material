@@ -1,0 +1,61 @@
+material colored
+{
+    u_ambientColor = .2, .2, .2
+
+    u_worldViewMatrix = WORLD_VIEW_MATRIX
+    u_worldViewProjectionMatrix = WORLD_VIEW_PROJECTION_MATRIX
+	u_inverseTransposeWorldViewMatrix = INVERSE_TRANSPOSE_WORLD_VIEW_MATRIX
+    
+    renderState
+    {
+        cullFace = true
+        depthTest = true
+    }
+    
+    technique
+    {
+        pass 
+        {
+            vertexShader = res/custom_shaders/colored.vert
+            fragmentShader = res/custom_shaders/colored.frag
+        }
+    }
+}
+
+material box : colored
+{
+    u_diffuseColor = 0.8, 0.1184, 0.0674, 1
+
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1; SPOT_LIGHT_COUNT 1
+        }
+    }
+}
+
+material monkey : colored
+{
+    u_diffuseColor = 0.1, 0.1, 0.8, 1
+    
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1; SPOT_LIGHT_COUNT 1
+        }
+    }
+}
+
+material backdrop : colored
+{
+    u_diffuseColor = 0.5, 0.5, 0.5, 1
+    technique
+    {
+        pass 
+        {
+            defines = DIRECTIONAL_LIGHT_COUNT 1; SPOT_LIGHT_COUNT 1
+        }
+    }
+}

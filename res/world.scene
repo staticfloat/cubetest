@@ -1,0 +1,19 @@
+scene
+{
+    path = res/world.gpb
+
+    node box
+    {
+        material = res/world.material#box
+    }
+    
+    node X
+    {
+        material = res/world.material#monkey
+    }
+
+    physics
+    {
+        gravity = 0.0, -9.8, 0.0
+    }
+}
